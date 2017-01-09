@@ -1,21 +1,21 @@
 {
-  "name": "mmm-nfl",
+  "name": "mmm-nba",
   "version": "1.0.0",
-  "description": "National Football League Module for MagicMirror2",
+  "description": "National Basketball Association Module for MagicMirror2",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fewieden/MMM-NFL.git"
+    "url": "git+https://github.com/in-a-days/MMM-NBA.git"
   },
   "keywords": [
     "MagicMirror",
-    "NFL"
+    "NBA"
   ],
-  "author": "fewieden",
+  "author": "in-a-days",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fewieden/MMM-NFL/issues"
+    "url": "https://github.com/in-a-days/MMM-NBA/issues"
   },
-  "homepage": "https://github.com/fewieden/MMM-NFL#readme",
+  "homepage": "https://github.com/in-a-days/MMM-NBA#readme",
   "dependencies": {
     "jsdom": "^9.4.2",
     "request": "^2.74.0",
