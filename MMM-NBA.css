@@ -1,50 +1,50 @@
-@-webkit-keyframes MMM-NFL-pulse {
+@-webkit-keyframes MMM-NBA-pulse {
     0% {opacity: 1;}
     50% {opacity: 0;}
     100% {opacity: 1;}
 }
 
-.MMM-NFL .table {
+.MMM-NBA .table {
     border-spacing: 10px 0px;
     border-collapse: separate;
     text-align: center;
 }
 
-.MMM-NFL .icon {
+.MMM-NBA .icon {
     -webkit-filter: grayscale(100%);
 }
 
-.MMM-NFL .row {
+.MMM-NBA .row {
     vertical-align: middle;
 }
 
-.MMM-NFL .away {
+.MMM-NBA .away {
     -webkit-transform: scaleX(-1);
 }
 
-.MMM-NFL .redzone {
+.MMM-NBA .redzone {
     -webkit-animation: MMM-NFL-pulse 2s infinite;
 }
 
-.MMM-NFL .live {
+.MMM-NBA .live {
     font-size: 10px;
     line-height: 15px;
     display: block;
 }
 
-.MMM-NFL .ball-home {
+.MMM-NBA .ball-home {
     margin-right: 10px;
 }
 
-.MMM-NFL .ball-away {
+.MMM-NBA .ball-away {
     margin-left: 10px;
 }
 
-.MMM-NFL-blur {
+.MMM-NBA-blur {
     -webkit-filter: blur(2px) brightness(50%);
 }
 
-.MMM-NFL .modal {
+.MMM-NBA .modal {
     position: fixed;
     text-align: left;
     left: 50%;
@@ -52,6 +52,6 @@
     -webkit-transform: translate(-50%, -50%);
 }
 
-.MMM-NFL .modal ul {
+.MMM-NBA .modal ul {
     margin: 0px;
 }
