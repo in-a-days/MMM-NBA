@@ -1,7 +1,8 @@
 /* Magic Mirror
- * Module: MMM-NFL
+ * Module: MMM-NBA
  *
- * By fewieden https://github.com/fewieden/MMM-NFL
+ * Originally MMM-NFA by fewieden https://github.com/fewieden/MMM-NFL
+ * Modified by in-a-days https://github.com/in-a-days/MMM-NBA
  * MIT Licensed.
  */
 
@@ -40,8 +41,6 @@ module.exports = NodeHelper.create({
             setInterval(() => {
                 this.fetchOnLiveState();
             }, 60*1000);
-        } else if(notification === "GET_STATISTICS"){
-            this.getStatistics(payload);
         }
     },
 
