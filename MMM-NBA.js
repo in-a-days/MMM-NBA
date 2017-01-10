@@ -42,25 +42,6 @@ Module.register("MMM-NFL", {
     statistics: false,
     help: false,
 
-    voice: {
-        mode: "FOOTBALL",
-        sentences: [
-            "OPEN HELP",
-            "CLOSE HELP",
-            "SHOW HELMETS",
-            "SHOW LOGOS",
-            "COLOR ON",
-            "COLOR OFF",
-            "SHOW PASSING YARDS STATISTIC",
-            "SHOW RUSHING YARDS STATISTIC",
-            "SHOW RECEIVING YARDS STATISTIC",
-            "SHOW TACKLES STATISTIC",
-            "SHOW SACKS STATISTIC",
-            "SHOW INTERCEPTIONS STATISTIC",
-            "HIDE STATISTIC"
-        ]
-    },
-
     getTranslations: function () {
         return {
             en: "translations/en.json",
@@ -82,30 +63,6 @@ Module.register("MMM-NFL", {
         moment.locale(config.language);
     },
 
-    notificationReceived: function (notification, payload, sender) {
-        if(notification === "ALL_MODULES_STARTED"){
-            this.sendNotification("REGISTER_VOICE_MODULE", this.voice);
-        } else if(notification === "VOICE_FOOTBALL" && sender.name === "MMM-voice"){
-            this.checkCommands(payload);
-        } else if(notification === "VOICE_MODE_CHANGED" && sender.name === "MMM-voice" && payload.old === this.voice.mode){
-            this.help = false;
-            this.statistics = false;
-            this.updateDom(300);
-        }
-    },
-
-    socketNotificationReceived: function (notification, payload) {
-        if (notification === "SCORES") {
-            this.scores = payload.scores;
-            this.details = payload.details;
-            this.updateDom(300);
-        } else if(notification === "STATISTICS"){
-            this.help = false;
-            this.statistics = payload;
-            this.updateDom(300);
-        }
-    },
-
     checkCommands: function(data){
         if(/(HELP)/g.test(data)){
             if(/(CLOSE)/g.test(data) || this.help && !/(OPEN)/g.test(data)){
@@ -123,22 +80,6 @@ Module.register("MMM-NFL", {
                 this.config.colored = false;
             } else if(/(ON)/g.test(data) || !this.config.colored && !/(OFF)/g.test(data)){
                 this.config.colored = true;
-            }
-        } else if(/(STATISTIC)/g.test(data)){
-            if(/(HIDE)/g.test(data)){
-                this.statistics = false;
-            } else if(/(PASSING)/g.test(data)){
-                this.sendSocketNotification("GET_STATISTICS", "Passing Yards");
-            } else if(/(RUSHING)/g.test(data)){
-                this.sendSocketNotification("GET_STATISTICS", "Rushing Yards");
-            } else if(/(RECEIVING)/g.test(data)){
-                this.sendSocketNotification("GET_STATISTICS", "Receiving Yards");
-            } else if(/(TACKLES)/g.test(data)){
-                this.sendSocketNotification("GET_STATISTICS", "Tackles");
-            } else if(/(SACKS)/g.test(data)){
-                this.sendSocketNotification("GET_STATISTICS", "Sacks");
-            } else if(/(INTERCEPTIONS)/g.test(data)){
-                this.sendSocketNotification("GET_STATISTICS", "Interceptions");
             }
         }
         this.updateDom(300);
@@ -435,27 +376,4 @@ Module.register("MMM-NFL", {
 
         appendTo.appendChild(table);
     },
-
-    appendHelp: function(appendTo){
-        var title = document.createElement("h1");
-        title.classList.add("medium");
-        title.innerHTML = this.name + " - " + this.translate("COMMAND_LIST");
-        appendTo.appendChild(title);
-
-        var mode = document.createElement("div");
-        mode.innerHTML = this.translate("MODE") + ": " + this.voice.mode;
-        appendTo.appendChild(mode);
-
-        var listLabel = document.createElement("div");
-        listLabel.innerHTML = this.translate("VOICE_COMMANDS") + ":";
-        appendTo.appendChild(listLabel);
-
-        var list = document.createElement("ul");
-        for(var i = 0; i < this.voice.sentences.length; i++){
-            var item = document.createElement("li");
-            item.innerHTML = this.voice.sentences[i];
-            list.appendChild(item);
-        }
-        appendTo.appendChild(list);
-    }
 });
