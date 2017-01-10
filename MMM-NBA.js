@@ -1,11 +1,11 @@
 /* Magic Mirror
- * Module: MMM-NFL
+ * Module: MMM-NBA
  *
- * By fewieden https://github.com/fewieden/MMM-NFL
+ * By fewieden https://github.com/fewieden/MMM-NBA
  * MIT Licensed.
  */
 
-Module.register("MMM-NFL", {
+Module.register("MMM-NBA", {
 
     modes: {
         "P": "Pre-Season",
@@ -54,7 +54,7 @@ Module.register("MMM-NFL", {
     },
 
     getStyles: function () {
-        return ["font-awesome.css", "MMM-NFL.css"];
+        return ["font-awesome.css", "MMM-NBA.css"];
     },
 
     start: function () {
@@ -90,7 +90,7 @@ Module.register("MMM-NFL", {
         var wrapper = document.createElement("div");
         var scores = document.createElement("div");
         var header = document.createElement("header");
-        header.innerHTML = "NFL " + this.modes[this.details.t] + " " + this.details.y;
+        header.innerHTML = "NBA " + this.modes[this.details.t] + " " + this.details.y;
         scores.appendChild(header);
 
         if (!this.scores) {
@@ -127,17 +127,17 @@ Module.register("MMM-NFL", {
 
             var modules = document.querySelectorAll(".module");
             for (var i = 0; i < modules.length; i++) {
-                if(!modules[i].classList.contains("MMM-NFL")){
+                if(!modules[i].classList.contains("MMM-NBA")){
                     if(this.statistics || this.help){
-                        modules[i].classList.add("MMM-NFL-blur");
+                        modules[i].classList.add("MMM-NBA-blur");
                     } else {
-                        modules[i].classList.remove("MMM-NFL-blur");
+                        modules[i].classList.remove("MMM-NBA-blur");
                     }
                 }
             }
 
             if(this.statistics || this.help){
-                scores.classList.add("MMM-NFL-blur");
+                scores.classList.add("MMM-NBA-blur");
                 var modal = document.createElement("div");
                 modal.classList.add("modal");
                 if(this.statistics){
