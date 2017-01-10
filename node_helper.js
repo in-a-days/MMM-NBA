@@ -15,8 +15,8 @@ const NodeHelper = require("node_helper");
 module.exports = NodeHelper.create({
 
     urls: {
-        regular: "http://www.nfl.com/liveupdate/scorestrip/ss.xml",
-        post: "http://www.nfl.com/liveupdate/scorestrip/postseason/ss.xml"
+        regular: "http://www.espn.com/nba/bottomline/scores",
+//        post: "http://www.nfl.com/liveupdate/scorestrip/postseason/ss.xml"
     },
     mode: "regular",
     scores: [],
@@ -62,17 +62,6 @@ module.exports = NodeHelper.create({
                 });
             } else {
                 console.log("Error getting NFL scores " + response.statusCode);
-            }
-        });
-    },
-
-    getStatistics: function(type){
-        StatisticsAPI.getStats(type, (err, stats) => {
-            if (err) {
-                console.log("MMM-NFL: Error => " + err);
-                this.sendSocketNotification("ERROR", {error: "Statistics for " + type + " not found!"});
-            } else {
-                this.sendSocketNotification("STATISTICS", stats);
             }
         });
     },
