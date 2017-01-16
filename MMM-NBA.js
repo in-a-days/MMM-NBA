@@ -7,30 +7,6 @@
 
 Module.register("MMM-NBA", {
 
-    modes: {
-        "P": "Pre-Season",
-        "R": "Regular-Season",
-        "POST": "Post-Season"
-    },
-
-    details: {
-        y: (new Date()).getFullYear(),
-        t: "P"
-    },
-
-    states: {
-        "1": "1ST_QUARTER",
-        "2": "2ND_QUARTER",
-        "3": "3RD_QUARTER",
-        "4": "4TH_QUARTER",
-        "H": "HALF_TIME",
-        "OT": "OVER_TIME",
-        "F": "FINAL",
-        "FO": "FINAL_OVERTIME",
-        "T": "TIE",
-        "P": "UPCOMING"
-    },
-
     defaults: {
         colored: false,
         helmets: false,
@@ -39,7 +15,6 @@ Module.register("MMM-NBA", {
         reloadInterval: 30 * 60 * 1000       // every 30 minutes
     },
 
-    statistics: false,
     help: false,
 
     getTranslations: function () {
@@ -59,7 +34,6 @@ Module.register("MMM-NBA", {
 
     start: function () {
         Log.info("Starting module: " + this.name);
-        this.sendSocketNotification("CONFIG", this.config);
         moment.locale(config.language);
     },
 
