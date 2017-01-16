@@ -34,6 +34,7 @@ Module.register("MMM-NBA", {
 
     start: function () {
         Log.info("Starting module: " + this.name);
+        this.sendSocketNotification("CONFIG", this.config);
         moment.locale(config.language);
     },
 
