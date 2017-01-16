@@ -1,7 +1,7 @@
 /* Magic Mirror
  * Module: MMM-NBA
  *
- * Originally MMM-NBA by fewieden https://github.com/fewieden/MMM-NFL
+ * Originally MMM-NFL by fewieden https://github.com/fewieden/MMM-NFL
  * Modified by in-a-days https://github.com/in-a-days/MMM-NBA
  * MIT Licensed.
  */
@@ -11,7 +11,6 @@ const parser = require('xml2js').parseString;
 const moment = require('moment-timezone');
 const StatisticsAPI = require("./StatisticsAPI.js");
 const NodeHelper = require("node_helper");
-const scores
 
 module.exports = NodeHelper.create({
 
@@ -28,9 +27,10 @@ module.exports = NodeHelper.create({
         pythonStarted = true;
         this.python_start();
         };
-    }
-    else if(notification === 'NBASCORES') {
-        this.sendSocketNotification("SCORES", scores);     
-  }
-
+    };
+    if(notification === 'SCORESLOADED') {
+        this.config = payload
+        self.sendSocketNotification("SCORES", this.config);
+    };
+ };
 });
