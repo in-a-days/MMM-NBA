@@ -32,5 +32,5 @@ module.exports = NodeHelper.create({
         this.config = payload
         self.sendSocketNotification("SCORES", this.config);
     };
- };
+ }
 });
