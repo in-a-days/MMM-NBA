@@ -1,7 +1,7 @@
 /* Magic Mirror
  * Module: MMM-NBA
  *
- * Originally MMM-NFA by fewieden https://github.com/fewieden/MMM-NFL
+ * Originally MMM-NBA by fewieden https://github.com/fewieden/MMM-NFL
  * Modified by in-a-days https://github.com/in-a-days/MMM-NBA
  * MIT Licensed.
  */
