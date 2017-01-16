@@ -14,11 +14,6 @@ const NodeHelper = require("node_helper");
 
 module.exports = NodeHelper.create({
 
-    urls: {
-        regular: "http://www.espn.com/nba/bottomline/scores",
-//        post: "http://www.nfl.com/liveupdate/scorestrip/postseason/ss.xml"
-    },
-    mode: "regular",
     scores: [],
     details: {},
     nextMatch: null,
