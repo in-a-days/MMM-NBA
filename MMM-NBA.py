@@ -1,5 +1,9 @@
+# NBA Score Parser by in-a-days
+# Inspired by MMM-NFL by fewieden
+# MIT License
+# Please Use and Please Distribute
 #!/usr/bin/python
- 
+
 import urllib2
 import sys
 
