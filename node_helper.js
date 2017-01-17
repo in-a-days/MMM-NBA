@@ -9,7 +9,6 @@
 const request = require('request');
 const parser = require('xml2js').parseString;
 const moment = require('moment-timezone');
-const StatisticsAPI = require("./StatisticsAPI.js");
 const NodeHelper = require("node_helper");
 
 module.exports = NodeHelper.create({
