@@ -28,7 +28,7 @@ module.exports = NodeHelper.create({
         this.python_start();
         };
     };
-    if(notification === 'SCORESLOADED') {
+    if(notification === 'NBALOADED') {
         this.config = payload
         self.sendSocketNotification("SCORES", this.config);
     };
