@@ -33,7 +33,6 @@ findData = 999
 intHolder = 0
 currentPosition = 0
 strHolder = ""
-word = 0
 
 # String cleanup
 
