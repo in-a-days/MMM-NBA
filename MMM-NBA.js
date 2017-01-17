@@ -38,34 +38,18 @@ Module.register("MMM-NBA", {
         moment.locale(config.language);
     },
 
-    checkCommands: function(data){
-        if(/(HELP)/g.test(data)){
-            if(/(CLOSE)/g.test(data) || this.help && !/(OPEN)/g.test(data)){
-                this.help = false;
-            } else if(/(OPEN)/g.test(data) || !this.help && !/(CLOSE)/g.test(data)){
-                this.statistics = false;
-                this.help = true;
-            }
-        } else if(/(HELMETS)/g.test(data)){
-            this.config.helmets = true;
-        } else if(/(LOGOS)/g.test(data)){
-            this.config.helmets = false;
-        } else if(/(COLOR)/g.test(data)){
-            if(/(OFF)/g.test(data) || this.config.colored && !/(ON)/g.test(data)){
-                this.config.colored = false;
-            } else if(/(ON)/g.test(data) || !this.config.colored && !/(OFF)/g.test(data)){
-                this.config.colored = true;
-            }
-        }
-        this.updateDom(300);
-    },
-
+    notificationReceived: function(notification, payload){
+	    if (notification === 'SCORES'){
+		    this.config = payload;
+	    };
+    },    
+    
     getDom: function () {
 
         var wrapper = document.createElement("div");
         var scores = document.createElement("div");
         var header = document.createElement("header");
-        header.innerHTML = "NBA " + this.modes[this.details.t] + " " + this.details.y;
+        header.innerHTML = "NBA Scores";
         scores.appendChild(header);
 
         if (!this.scores) {
