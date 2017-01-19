@@ -34,7 +34,6 @@ module.exports = NodeHelper.create({
 
   socketNotificationReceived: function(notification, payload) {
     if(notification === 'NBACONFIG') {
-      this.config = payload
       if(!pythonStarted) {
         pythonStarted = true;
         this.python_start();
