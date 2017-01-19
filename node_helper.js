@@ -14,8 +14,6 @@ var pythonStarted = false
 
 module.exports = NodeHelper.create({
 
-    var PythonShell = require('python-shell');
-
     PythonShell.run('MMM-NBA.py', function (err) {
         if (err) throw err;
     console.log('finished');
