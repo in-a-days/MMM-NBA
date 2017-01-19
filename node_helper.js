@@ -32,7 +32,7 @@ module.exports = NodeHelper.create({
     });
   },
 
- self.sendSocketNotification("NBASCORES", fromnode);    
+ sendSocketNotification("NBASCORES", fromnode);    
   
- }
+
 });
