@@ -28,8 +28,8 @@ module.exports = NodeHelper.create({
     pyshell.end(function (err) {
         if (err) throw err;
         console.log('finished');
-    };
-}),
+    });
+  },
     
   // Subclass socketNotificationReceived received.
   socketNotificationReceived: function(notification, payload) {
