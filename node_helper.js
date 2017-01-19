@@ -9,15 +9,17 @@
 const request = require('request');
 const parser = require('xml2js').parseString;
 const NodeHelper = require("node_helper");
-const PythonShell = require('python-shell');
+var PythonShell = require('python-shell');
 var pythonStarted = false
 
 module.exports = NodeHelper.create({
 
-    python_start: function () {
-        const self = this;
-        const pyshell = new PythonShell('modules/MMM-NBA/MMM-NBA.py', { mode: 'json', args: [JSON.stringify(this.config)]});
-    },
+    var PythonShell = require('python-shell');
+
+    PythonShell.run('MMM-NBA.py', function (err) {
+        if (err) throw err;
+    console.log('finished');
+    });
     
   // Subclass socketNotificationReceived received.
   socketNotificationReceived: function(notification, payload) {
