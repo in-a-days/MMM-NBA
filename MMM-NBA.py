@@ -169,4 +169,4 @@ while currentPosition < arraySize:
 			currentPosition = currentPosition+1
 	else: currentPosition = currentPosition+1
 
-# to_node("message", gameData.homeTeam)
+to_node("message", gameData.homeTeam)
