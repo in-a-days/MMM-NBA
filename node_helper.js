@@ -9,6 +9,7 @@
 const request = require('request');
 const parser = require('xml2js').parseString;
 const NodeHelper = require("node_helper");
+const PythonShell = require('python-shell');
 var pythonStarted = false
 
 module.exports = NodeHelper.create({
