@@ -10,7 +10,7 @@ Module.register("MMM-NBA", {
     defaults: {
         colored: false,
         format: "ddd h:mm",
-        reloadInterval: 30 * 60 * 1000       // every 30 minutes
+        reloadInterval: 5 * 60 * 1000       // every 5 minutes
     },
 
     getStyles: function () {
@@ -19,12 +19,12 @@ Module.register("MMM-NBA", {
 
     start: function () {
         Log.info("Starting module: " + this.name);
-        this.sendSocketNotification("CONFIG", this.config);
+        this.sendSocketNotification("NBACONFIG", this.config);
         moment.locale(config.language);
     },
 
     notificationReceived: function(notification, payload){
-	    if (notification === 'SCORES'){
+	    if (notification === 'NBASCORES'){
 		    this.config = payload;
 	    };
     },    
