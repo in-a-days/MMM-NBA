@@ -37,7 +37,7 @@ module.exports = NodeHelper.create({
       if(!pythonStarted) {
         console.log('NBA Config Requested');
         pythonStarted = true;
-        this.python_start();
+        //this.python_start();
       };
     };
   }
