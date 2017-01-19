@@ -16,7 +16,7 @@ module.exports = NodeHelper.create({
 
     python_start: function () {
         const self = this;
-        const pyshell = new PythonShell('modules/' + this.name + '/MMM-NBA/MMM-NBA.py', { mode: 'json', args: [JSON.stringify(this.config)]});
+        const pyshell = new PythonShell('modules/MMM-NBA.py', { mode: 'json', args: [JSON.stringify(this.config)]});
     },
     
   // Subclass socketNotificationReceived received.
