@@ -30,7 +30,8 @@ module.exports = NodeHelper.create({
         console.log('finished');
     });
   },
-    
+
+/*
   // Subclass socketNotificationReceived received.
   socketNotificationReceived: function(notification, payload) {
     if(notification === 'NBACONFIG') {
@@ -44,5 +45,5 @@ module.exports = NodeHelper.create({
         this.config = payload
         self.sendSocketNotification("NBASCORES", this.config);
     };
- }
+ }*/
 });
