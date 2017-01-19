@@ -19,10 +19,11 @@ module.exports = NodeHelper.create({
     const self = this;
     const pyshell = new PythonShell('modules/' + this.name + '/MMM-NBA.py', { mode: 'json', args: [JSON.stringify(this.config)]});
 
-    pyshell.on('message', function (message) {
+    pyshell.on('message', function (err, message) {
   // received a message sent from the Python script (a simple "print" statement)
-        console.log(message);
-        fromnode = message;
+      if (err) throw err;
+      console.log(message);
+      fromnode = message;
     });
 
     pyshell.end(function (err) {
@@ -31,7 +32,6 @@ module.exports = NodeHelper.create({
     });
   },
 
-/*
   // Subclass socketNotificationReceived received.
   socketNotificationReceived: function(notification, payload) {
     if(notification === 'NBACONFIG') {
@@ -41,9 +41,9 @@ module.exports = NodeHelper.create({
         this.python_start();
         };
     };
-    if(notification === 'NBALOADED') {
+/*    if(notification === 'NBALOADED') {
         this.config = payload
         self.sendSocketNotification("NBASCORES", this.config);
-    };
- }*/
+    };*/
+ }
 });
