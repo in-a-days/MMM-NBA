@@ -32,7 +32,15 @@ module.exports = NodeHelper.create({
     });
   },
 
- // sendSocketNotification("NBASCORES", fromnode);    
+  socketNotificationReceived: function(notification, payload) {
+    if(notification === 'NBACONFIG') {
+      this.config = payload
+      if(!pythonStarted) {
+        pythonStarted = true;
+        this.python_start();
+        };
+    };
+  }
   
 
 });
