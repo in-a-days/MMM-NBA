@@ -11,13 +11,24 @@ const parser = require('xml2js').parseString;
 const NodeHelper = require("node_helper");
 var PythonShell = require('python-shell');
 var pythonStarted = false
+var fromnode = false
 
 module.exports = NodeHelper.create({
 
-    PythonShell.run('MMM-NBA.py', function (err) {
+  python_start: function () {
+    const self = this;
+    const pyshell = new PythonShell('modules/' + this.name + '/MMM-NBA.py', { mode: 'json', args: [JSON.stringify(this.config)]});
+
+    pyshell.on('message', function (message) {
+  // received a message sent from the Python script (a simple "print" statement)
+        console.log(message);
+        fromnode = message;
+});
+
+    pyshell.end(function (err) {
         if (err) throw err;
-    console.log('finished');
-    });
+        console.log('finished');
+});
     
   // Subclass socketNotificationReceived received.
   socketNotificationReceived: function(notification, payload) {
