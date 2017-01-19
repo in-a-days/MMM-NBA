@@ -23,13 +23,13 @@ module.exports = NodeHelper.create({
   // received a message sent from the Python script (a simple "print" statement)
         console.log(message);
         fromnode = message;
-    };
+    });
 
     pyshell.end(function (err) {
         if (err) throw err;
         console.log('finished');
     };
-});
+}),
     
   // Subclass socketNotificationReceived received.
   socketNotificationReceived: function(notification, payload) {
