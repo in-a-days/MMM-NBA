@@ -31,12 +31,13 @@ module.exports = NodeHelper.create({
         console.log('finished');
     });
   },
+};
 
   socketNotificationReceived: function(notification, payload) {
     if(notification === 'NBACONFIG') {
       python_start();
     };
-  }
+  
   
 
 });
